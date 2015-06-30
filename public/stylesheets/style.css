@@ -28,6 +28,21 @@ header, nav, section, footer {
   text-align: center;
 }
 
+footer > a {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
 nav span {
   margin: 0px 10px 0px 0px;
+}
+
+img#avatar {
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+#nombre {
+  margin-bottom: 15px;
+  font-weight: bold;
 }
