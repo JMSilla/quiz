@@ -15,9 +15,18 @@ exports.load = function(req, res, next, quizId) {
 };
 
 exports.index = function(req, res) {
-  models.Quiz.findAll().then(
+  var valorBusqueda = req.query.search || '';
+  var busquedaLike = '%' + valorBusqueda.trim().replace(/\s+/g, '%') + '%';
+  console.log('Búsqueda LIKE: ' + busquedaLike + '(' + busquedaLike.length +')');
+
+  models.Quiz.findAll(
+    {
+      where: ['pregunta like ?', busquedaLike],
+      order: 'pregunta ASC'
+    }
+  ).then(
     function(quizes) {
-      res.render('quizes/index', {quizes: quizes});
+      res.render('quizes/index', {quizes: quizes, valorBusqueda: valorBusqueda});
     }
   ).catch(function (error) { next(error); });
 };
