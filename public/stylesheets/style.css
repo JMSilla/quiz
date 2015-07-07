@@ -57,3 +57,7 @@ table#preguntas {
   color: #f61;
   font-size: smaller;
 }
+
+#crearPregunta {
+  margin-top: 15px;
+}
