@@ -29,6 +29,25 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res, next) {
+  if (req.session.user) {
+    var currentDate = new Date().getTime();
+    var lastAccessDate = req.session.lastAccessDate || currentDate;
+    var dateDiff = currentDate - lastAccessDate;
+
+    if (dateDiff > 120000) {
+      delete req.session.user;
+      delete req.session.lastAccessDate;
+    }
+    else
+      req.session.lastAccessDate = currentDate;
+  }
+  else if (req.session.lastAccessDate)
+    delete req.session.lastAccessDate;
+
+  next();
+});
+
 app.use(function(req, res, next) {
   if (!req.path.match(/\/login|\/logout/))
     req.session.redir = req.path;
