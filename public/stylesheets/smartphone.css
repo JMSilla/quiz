@@ -17,3 +17,14 @@ body {
 footer, input, button, select {
   font-size: large;
 }
+
+table#preguntas {
+  text-align: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+table#statistics {
+  width: 100%;
+  margin-top: 15px;
+}

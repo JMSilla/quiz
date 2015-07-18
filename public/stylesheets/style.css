@@ -49,8 +49,10 @@ img#avatar {
 
 table#preguntas {
   text-align: center;
-  width: 100%;
+  width: 50%;
   margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ErrorMsgs {
@@ -64,4 +66,19 @@ table#preguntas {
 
 .right {
   float: right;
+}
+
+table#statistics {
+  width: 50%;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+table#statistics td {
+  text-align: left;
+  border: solid 1px;
+  margin: 0;
+  padding: 3px;
 }
